@@ -18,8 +18,10 @@ fn on_window_close() {
 
 fn on_button_add_click(text_input: &nwg::TextInput, listbox: &ListBox<String>) {
     let new_item = text_input.text();
-    listbox.push(new_item);
-    text_input.set_text("");
+    if !new_item.is_empty() {
+        listbox.push(new_item);
+        text_input.set_text("");
+    }
 }
 
 fn on_button_remove_click(listbox: &ListBox<String>) {
